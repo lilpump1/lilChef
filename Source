@@ -1,3 +1,8 @@
 
-How to seperate words by space
-https://stackoverflow.com/questions/7899525/how-to-split-a-string-by-space
+How to seperate words using split
+https://www.javatpoint.com/java-string-split
+
+Using string buffer to replace all occurance of a word except first letter
+https://www.tutorialspoint.com/java/stringbuffer_replace.htm
+https://beginnersbook.com/2015/04/convert-stringbuffer-to-string/
+
