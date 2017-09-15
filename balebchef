@@ -14,33 +14,54 @@ Scanner input = new Scanner(System.in);
 	word = word.toLowerCase();
 	String[] splitStr = word.split("\\s+");
 	int count1 = splitStr[0].length();
-	int control = 0;
 	int i = 1;
 	int c = 1;
 	int a = 1;
 	int j = 0;
-	int e = 0; 
-	int r = 1;
 	int ii = 0;
-	int ee = 0;
-	int k = 0;
 	int o = 1; 
 	int p = 1;
+	int the  = 0;
+	int theDex;
+	int oDex;
+	int oo = 0;
+	int idex;
+	int r = 0;
+	int au; 
+	int u = 0;
+	int n = 0;
 	
 if(splitStr.length >= 1)	{
+	theDex = splitStr[0].indexOf("the");
 	
+	if (theDex != -1) {
     splitStr[0] = splitStr[0].replaceAll("the", "zee");
+    the = 1;
+	}
+	
     splitStr[0] = splitStr[0].replaceAll("an", "un");
-    if(k == 0) {
-    splitStr[0] = splitStr[0].replaceAll("au", "oo");
-    k = 1;
-    }
+    
+    au = splitStr[0].indexOf("au");
+    if (au != -1) {
+    	splitStr[0] = splitStr[0].replaceAll("au", "oo");
+    u = 1;
+    	}
+
     splitStr[0] = splitStr[0].replaceAll("a", "e");
     splitStr[0] = splitStr[0].replaceAll("ow", "oo");
-    if(k == 0) {
-    splitStr[0] = splitStr[0].replaceAll("o", "u");
-    }
-    splitStr[0] = splitStr[0].replaceAll("ir", "ur");
+    
+    oDex = splitStr[0].indexOf("o");
+    if (oDex != -1 && u == 0) {
+    		splitStr[0] = splitStr[0].replaceAll("o", "u");
+        oo = 1;
+    	}
+    
+    idex = splitStr[0].indexOf("ir");
+    if (idex != -1) {
+        splitStr[0] = splitStr[0].replaceAll("ir", "ur");
+        r = 1;
+    	}
+
     splitStr[0] = splitStr[0].replaceAll("tion", "shun");
     
     StringBuffer buf = new StringBuffer(splitStr[0]);
@@ -55,31 +76,27 @@ if(splitStr.length >= 1)	{
     	c++;
     }
     splitStr[0] = buf.toString();
-    
+
      while(j < count1 && a < count1) {
     	 if(splitStr[0].charAt(j) == 'e' && splitStr[0].charAt(a) == 'n') {
-    		 splitStr[0] = splitStr[0].substring(0, splitStr[0].length() - 1)+'e';
-    		 control = 1;
-    	 	}else {
-    	 		control = 0;
+    		 splitStr[0] = splitStr[0].substring(0, splitStr[0].length() - 1)+'e';   
+    		 n = 1;
     	 	}
     	 j++;
     	 a++;
      }
+     
      splitStr[0] = splitStr[0].replaceAll("f", "ff");
      
      ii = splitStr[0].length() - 1;
-     System.out.println(ii);
      
-    	 if(splitStr[0].charAt(ii) == 'e' ) {
+    	 if(splitStr[0].charAt(ii) == 'e' && the == 0 && n == 0) {
     		 splitStr[0] = splitStr[0].substring(0,ii)+"e-a";
     	 }
     	
-    	ee = splitStr[0].length()-4;
-    	
-    	 StringBuffer buffy = new StringBuffer(splitStr[0]);
+    	StringBuffer buffy = new StringBuffer(splitStr[0]);
     	    
-    	    while(o < count1 && p < count1) {
+    	    while(o < count1 && p < count1 && oo == 0 && r == 0) {
     	    	if(splitStr[0].charAt(o) == 'u') {
     	    	buffy.deleteCharAt(o);
     	    buffy.replace(o, p, "oo");
@@ -96,30 +113,47 @@ if(splitStr.length >= 1)	{
 if(splitStr.length >= 2){
 	  
     	 	count1 = splitStr[1].length();
- 		control = 0;
  		i = 1;
  		a = 1;
  		j = 0;
- 		e = 0; 
- 		r = 1;
- 		k = 0;
  		c = 1;
  		o = 1;
  		p = 1;
+ 		the = 0;
+ 		oo = 0;
+ 		r = 0;
+ 		u = 0;
+ 		n = 0;
  		
+ 		theDex = splitStr[1].indexOf("the");
+ 		
+ 		if (theDex != -1) {
  	    splitStr[1] = splitStr[1].replaceAll("the", "zee");
+ 	    the = 1;
+ 		}
+ 		
  	    splitStr[1] = splitStr[1].replaceAll("an", "un");
- 	    if(k == 0) {
- 	   splitStr[1] = splitStr[1].replaceAll("au", "oo");
- 	   k = 1;
- 	    }
- 	    splitStr[1] = splitStr[1].replaceAll("a", "e");
- 	    splitStr[1] = splitStr[1].replaceAll("ow", "oo");
  	    
- 	    if(k == 0) {
- 	    	splitStr[1] = splitStr[1].replaceAll("o", "u");
- 	    }
- 	    splitStr[1] = splitStr[1].replaceAll("ir", "ur");
+ 	   au = splitStr[1].indexOf("au");
+ 	    if (au != -1) {
+ 	    	splitStr[1] = splitStr[1].replaceAll("au", "oo");
+ 	    u = 1;
+ 	    	}
+ 	    splitStr[1] = splitStr[1].replaceAll("a", "e");
+ 	    splitStr[1] = splitStr[1].replaceAll("ow", "oo"); 
+ 	    
+ 	   oDex = splitStr[1].indexOf("o");
+ 	    if (oDex != -1 && u == 0) {
+ 	    		splitStr[1] = splitStr[1].replaceAll("o", "u");
+ 	        oo = 1;
+ 	    	}
+ 	    
+ 	   idex = splitStr[1].indexOf("ir");
+ 	    if (idex != -1) {
+ 	        splitStr[1] = splitStr[1].replaceAll("ir", "ur");
+ 	        r = 1;
+ 	    	}
+ 	    
  	    splitStr[1] = splitStr[1].replaceAll("tion", "shun");
  	    
  	   StringBuffer buf = new StringBuffer(splitStr[1]);
@@ -138,25 +172,22 @@ if(splitStr.length >= 2){
  	     while(j < count1 && a < count1) {
  	    	 if(splitStr[1].charAt(j) == 'e' && splitStr[1].charAt(a) == 'n') {
  	    		 splitStr[1] = splitStr[1].substring(0, splitStr[1].length() - 1)+'e';
- 	    		 control = 1;
- 	    	 	}else {
- 	    	 		control = 0;
+ 	    		 n = 1;
  	    	 	}
  	    	 j++;
  	    	 a++;
  	     }
+ 	     
  	     splitStr[1] = splitStr[1].replaceAll("f", "ff");
  	     
  	    ii = splitStr[1].length() - 1;
- 	    	 if(splitStr[1].charAt(ii) == 'e' && control == 0 ) {
+ 	    	 if(splitStr[1].charAt(ii) == 'e' && the == 0 && n == 0 ) {
  	    		 splitStr[1] = splitStr[1].substring(0,ii)+"e-a";
  	    	 }
  	    	 
- 	    	ee = splitStr[1].length()-4;
-
- 	    	 StringBuffer buffy = new StringBuffer(splitStr[1]);
+ 	    	StringBuffer buffy = new StringBuffer(splitStr[1]);
      	    
-     	    while(o < count1 && p < count1) {
+     	    while(o < count1 && p < count1 && oo == 0 && r == 0) {
      	    	if(splitStr[1].charAt(o) == 'u') {
      	    	buffy.deleteCharAt(o);
      	    buffy.replace(o, p, "oo");
@@ -173,28 +204,48 @@ if(splitStr.length >= 2){
 if(splitStr.length >= 3) {	  
 	 
  			count1 = splitStr[2].length();
- 			control = 0;
  			i = 1;
  			a = 1;
  			j = 0;
- 			e = 0; 
- 			r = 1;
- 			k = 0;
  			c = 1;
  			o = 1;
  			p = 1;
+ 			the = 0;
+ 			oo = 0;
+ 			r = 0;
+ 			u = 0;
+ 			n = 0;
+ 			
+ 			theDex = splitStr[2].indexOf("the");
+ 			
+ 			if (theDex != -1) {
  		    splitStr[2] = splitStr[2].replaceAll("the", "zee");
+ 		    the = 1;
+ 			}
  		    splitStr[2] = splitStr[2].replaceAll("an", "un");
- 		   if(k == 0) {
- 		   splitStr[2] = splitStr[2].replaceAll("au", "oo");
- 		   k = 1;
- 		   }
+ 		    
+ 		   au = splitStr[2].indexOf("au");
+ 		    if (au != -1) {
+ 		    	splitStr[2] = splitStr[2].replaceAll("au", "oo");
+ 		    u = 1;
+ 		    	}
+ 		    
  		    splitStr[2] = splitStr[2].replaceAll("a", "e");
  		    splitStr[2] = splitStr[2].replaceAll("ow", "oo");
- 		    if(k == 0) {
- 		    splitStr[2] = splitStr[2].replaceAll("o", "u");
- 		    }
- 		    splitStr[2] = splitStr[2].replaceAll("ir", "ur");
+ 		    
+ 		    
+ 		   oDex = splitStr[2].indexOf("o");
+ 		    if (oDex != -1 && u == 0) {
+ 		    		splitStr[2] = splitStr[2].replaceAll("o", "u");
+ 		        oo = 1;
+ 		    	}
+ 		    
+ 		   idex = splitStr[2].indexOf("ir");
+ 		    if (idex != -1) {
+ 		        splitStr[2] = splitStr[2].replaceAll("ir", "ur");
+ 		        r = 1;
+ 		    	}
+ 		    
  		    splitStr[2] = splitStr[2].replaceAll("tion", "shun");
  		    
  		   StringBuffer buf = new StringBuffer(splitStr[2]);
@@ -213,25 +264,22 @@ if(splitStr.length >= 3) {
  		     while(j < count1 && a < count1) {
  		    	 if(splitStr[2].charAt(j) == 'e' && splitStr[2].charAt(a) == 'n') {
  		    		 splitStr[2] = splitStr[2].substring(0, splitStr[2].length() - 1)+'e';
- 		    		 control = 1;
- 		    	 	}else {
- 		    	 		control = 0;
+ 		    		 n = 1;
  		    	 	}
  		    	 j++;
  		    	 a++;
  		     }
+ 		     
  		     splitStr[2] = splitStr[2].replaceAll("f", "ff");
  		     
  		    ii = splitStr[2].length() - 1;
- 		    	 if(splitStr[2].charAt(ii) == 'e' && control == 0 ) {
+ 		    	 if(splitStr[2].charAt(ii) == 'e' && the == 0 && n == 0) {
  		    		 splitStr[2] = splitStr[2].substring(0,ii)+"e-a";
  		    	 }
  		    	 
- 		    	ee = splitStr[2].length()-4;
-
- 		    	 StringBuffer buffy = new StringBuffer(splitStr[2]);
+ 		    	StringBuffer buffy = new StringBuffer(splitStr[2]);
  	    	    
- 	    	    while(o < count1 && p < count1) {
+ 	    	    while(o < count1 && p < count1 && oo == 0 && r == 0) {
  	    	    	if(splitStr[2].charAt(o) == 'u') {
  	    	    	buffy.deleteCharAt(o);
  	    	    buffy.replace(o, p, "oo");
@@ -248,30 +296,48 @@ if(splitStr.length >= 3) {
 if(splitStr.length >= 4) {
  		
  				count1 = splitStr[3].length();
- 				control = 0;
  				i = 1;
  				a = 1;
  				j = 0;
- 				e = 0; 
- 				r = 1;
- 				k = 0;
  				c = 1;
  				o = 1;
  				p = 1;
+ 				the = 0;
+ 				oo = 0;
+ 				r = 0;
+ 				u = 0;
  				
+ 				theDex = splitStr[3].indexOf("the");
+ 				
+ 				if (theDex != -1) {
  			    splitStr[3] = splitStr[3].replaceAll("the", "zee");
+ 			    the = 1;
+ 				}
  			    splitStr[3] = splitStr[3].replaceAll("an", "un");
- 			   if(k == 0) {
- 			   splitStr[3] = splitStr[3].replaceAll("au", "oo");
- 			   k = 1;
- 			   }
+ 			    
+ 			   au = splitStr[3].indexOf("au");
+ 			    if (au != -1) {
+ 			    	splitStr[3] = splitStr[3].replaceAll("au", "oo");
+ 			    u = 1;
+ 			    	}
+ 			    
  			    splitStr[3] = splitStr[3].replaceAll("a", "e");
  			    splitStr[3] = splitStr[3].replaceAll("ow", "oo");
- 			    if(k == 0) {
- 			    splitStr[3] = splitStr[3].replaceAll("o", "u");
- 			    }
- 			    splitStr[3] = splitStr[3].replaceAll("ir", "ur");
+ 			    
+ 			   oDex = splitStr[3].indexOf("o");
+ 			    if (oDex != -1 && u == 0) {
+ 			    		splitStr[3] = splitStr[3].replaceAll("o", "u");
+ 			        oo = 1;
+ 			    	}
+ 			    
+ 			   idex = splitStr[3].indexOf("ir");
+ 			    if (idex != -1) {
+ 			        splitStr[3] = splitStr[3].replaceAll("ir", "ur");
+ 			        r = 1;
+ 			    	}
+ 			    
  			    splitStr[3] = splitStr[3].replaceAll("tion", "shun");
+ 			    
  			   StringBuffer buf = new StringBuffer(splitStr[3]);
  			    
  			    while(i < count1 && c < count1) {
@@ -288,9 +354,7 @@ if(splitStr.length >= 4) {
  			     while(j < count1 && a < count1) {
  			    	 if(splitStr[3].charAt(j) == 'e' && splitStr[3].charAt(a) == 'n') {
  			    		 splitStr[3] = splitStr[3].substring(0, splitStr[3].length() - 1)+'e';
- 			    		 control = 1;
- 			    	 	}else {
- 			    	 		control = 0;
+ 			    		 n = 1;
  			    	 	}
  			    	 j++;
  			    	 a++;
@@ -298,15 +362,13 @@ if(splitStr.length >= 4) {
  			     splitStr[3] = splitStr[3].replaceAll("f", "ff");
  			     
  			    ii = splitStr[3].length() - 1;
- 			    	 if(splitStr[3].charAt(ii) == 'e' && control == 0 ) {
+ 			    	 if(splitStr[3].charAt(ii) == 'e' && the == 0 && n == 0) {
  			    		 splitStr[3] = splitStr[3].substring(0,ii)+"e-a";
  			    	 }
  			    	 
- 			    	ee = splitStr[3].length()-4;
-
- 			    	 StringBuffer buffy = new StringBuffer(splitStr[3]);
+ 			    	StringBuffer buffy = new StringBuffer(splitStr[3]);
  		    	    
- 		    	    while(o < count1 && p < count1) {
+ 		    	    while(o < count1 && p < count1 && oo == 0 && r == 0) {
  		    	    	if(splitStr[3].charAt(o) == 'u') {
  		    	    	buffy.deleteCharAt(o);
  		    	    buffy.replace(o, p, "oo");
@@ -324,29 +386,46 @@ if(splitStr.length >= 4) {
 	if (splitStr.length >= 5) {
  		
  					count1 = splitStr[4].length();
- 					control = 0;
  					i = 1;
  					a = 1;
  					j = 0;
- 					e = 0; 
- 					r = 1;
- 					k = 0;
  					c = 1;
  					o = 1;
  					p = 1;
+ 					the = 0;
+ 					oo = 0;
+ 					r = 0;
+ 					u = 0;
+ 					
+ 					theDex = splitStr[4].indexOf("the");
+ 					
+ 					if (theDex != -1) {
  				    splitStr[4] = splitStr[4].replaceAll("the", "zee");
+ 				    the = 1;
+ 					}
  				    splitStr[4] = splitStr[4].replaceAll("an", "un");
- 				    if(k == 0) {
- 				   splitStr[4] = splitStr[4].replaceAll("au", "oo");
- 				   k = 1;
- 				    }
+ 				    
+ 				   au = splitStr[4].indexOf("au");
+ 				    if (au != -1) {
+ 				    	splitStr[4] = splitStr[4].replaceAll("au", "oo");
+ 				    u = 1;
+ 				    	}
+ 				    
  				    splitStr[4] = splitStr[4].replaceAll("a", "e");
  				    splitStr[4] = splitStr[4].replaceAll("ow", "oo");
  				    
- 				    if(k == 0){
- 				    splitStr[4] = splitStr[4].replaceAll("o", "u");
- 				    }
- 				    splitStr[4] = splitStr[4].replaceAll("ir", "ur");
+ 				   oDex = splitStr[4].indexOf("o");
+ 				    if (oDex != -1 && u == 0) {
+ 				    		splitStr[4] = splitStr[4].replaceAll("o", "u");
+ 				        oo = 1;
+ 				    	}
+ 				    
+ 				   idex = splitStr[4].indexOf("ir");
+ 				    if (idex != -1) {
+ 				        splitStr[4] = splitStr[4].replaceAll("ir", "ur");
+ 				        r = 1;
+ 				    	}
+ 				    
  				    splitStr[4] = splitStr[4].replaceAll("tion", "shun");
  				   StringBuffer buf = new StringBuffer(splitStr[4]);
  				    
@@ -364,9 +443,7 @@ if(splitStr.length >= 4) {
  				     while(j < count1 && a < count1) {
  				    	 if(splitStr[4].charAt(j) == 'e' && splitStr[4].charAt(a) == 'n') {
  				    		 splitStr[4] = splitStr[4].substring(0, splitStr[4].length() - 1)+'e';
- 				    		 control = 1;
- 				    	 	}else {
- 				    	 		control = 0;
+ 				    		 n = 1;
  				    	 	}
  				    	 j++;
  				    	 a++;
@@ -374,15 +451,13 @@ if(splitStr.length >= 4) {
  				     splitStr[4] = splitStr[4].replaceAll("f", "ff");
  				     
  				    ii = splitStr[4].length() - 1;
- 				    	 if(splitStr[4].charAt(ii) == 'e' && control == 0 ) {
+ 				    	 if(splitStr[4].charAt(ii) == 'e' && the == 0 && n == 0) {
  				    		 splitStr[4] = splitStr[4].substring(0,ii)+"e-a";
  				    	 }
  				    	 
- 				    	ee = splitStr[4].length()-4;
- 				    	
- 				    	 StringBuffer buffy = new StringBuffer(splitStr[4]);
+ 				    	StringBuffer buffy = new StringBuffer(splitStr[4]);
  			    	    
- 			    	    while(o < count1 && p < count1) {
+ 			    	    while(o < count1 && p < count1 && oo == 0 && r == 0) {
  			    	    	if(splitStr[4].charAt(o) == 'u') {
  			    	    	buffy.deleteCharAt(o);
  			    	    buffy.replace(o, p, "oo");
@@ -398,20 +473,21 @@ if(splitStr.length >= 4) {
  	}
  	
      if(splitStr.length == 1) {
-    	 System.out.println(splitStr[0]+". "+"Bork Bork Bork");
+    	 System.out.println(splitStr[0]+". "+"Bork Bork Bork!");
      }else if (splitStr.length == 2) {
-    	 System.out.println(splitStr[0]+" "+splitStr[1]+". "+"Bork Bork Bork");
+    	 System.out.println(splitStr[0]+" "+splitStr[1]+". "+"Bork Bork Bork!");
      }else if (splitStr.length == 3) {
-    	 System.out.println(splitStr[0]+" "+splitStr[1]+" " + splitStr[2]+". "+"Bork Bork Bork");
+    	 System.out.println(splitStr[0]+" "+splitStr[1]+" " + splitStr[2]+". "+"Bork Bork Bork!");
      }else if(splitStr.length == 4) {
-    	 System.out.println(splitStr[0]+" "+splitStr[1]+" " + splitStr[2]+" "+ splitStr[3]+". "+"Bork Bork Bork");
+    	 System.out.println(splitStr[0]+" "+splitStr[1]+" " + splitStr[2]+" "+ splitStr[3]+". "+"Bork Bork Bork!");
      }else if (splitStr.length == 5) {
-    	 System.out.println(splitStr[0]+" "+splitStr[1]+" " + splitStr[2]+" "+ splitStr[3]+" "+ splitStr[4] + ". "+"Bork Bork Bork");
+    	 System.out.println(splitStr[0]+" "+splitStr[1]+" " + splitStr[2]+" "+ splitStr[3]+" "+ splitStr[4] + ". "+"Bork Bork Bork!");
      }
 
 
 
+ }
 }
-}
+
 
 
