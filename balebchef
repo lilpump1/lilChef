@@ -1,0 +1,354 @@
+package review;
+
+import java.util.Scanner;
+
+public class tester {
+
+public static void main(String [] args){
+
+Scanner input = new Scanner(System.in);
+
+	System.out.println("Enter a sentance");
+
+	String word = input.nextLine();
+	word = word.toLowerCase();
+	String[] splitStr = word.split("\\s+");
+	int count1 = splitStr[0].length();
+	int control = 0;
+	int i = 1;
+	int a = 1;
+	int j = 0;
+	int e = 0; 
+	int r = 1;
+	int ii = 0;
+	int ee = 0;
+	int k = 0;
+	
+if(splitStr.length >= 1)	{
+	
+    splitStr[0] = splitStr[0].replaceAll("the", "zee");
+    splitStr[0] = splitStr[0].replaceAll("an", "un");
+    if(k == 0) {
+    splitStr[0] = splitStr[0].replaceAll("au", "oo");
+    k = 1;
+    }
+    splitStr[0] = splitStr[0].replaceAll("a", "e");
+    splitStr[0] = splitStr[0].replaceAll("ow", "oo");
+    if(k == 0) {
+    splitStr[0] = splitStr[0].replaceAll("o", "u");
+    }
+    splitStr[0] = splitStr[0].replaceAll("ir", "ur");
+    splitStr[0] = splitStr[0].replaceAll("tion", "shun");
+    StringBuilder firstWord = new StringBuilder(splitStr[0]);
+    
+     while(i < count1) {
+    	 	if(firstWord.charAt(i) == 'i') {
+    	 		firstWord.setCharAt(i, 'e');
+    	 	}
+    	 	i++;
+     }
+  
+     splitStr[0] = firstWord.toString();
+     while(j < count1 && a < count1) {
+    	 if(splitStr[0].charAt(j) == 'e' && splitStr[0].charAt(a) == 'n') {
+    		 splitStr[0] = splitStr[0].substring(0, splitStr[0].length() - 1)+'e';
+    		 control = 1;
+    	 	}else {
+    	 		control = 0;
+    	 	}
+    	 j++;
+    	 a++;
+     }
+     splitStr[0] = splitStr[0].replaceAll("f", "ff");
+     
+     ii = splitStr[0].length() - 1;
+    	 if(splitStr[0].charAt(ii) == 'e' && control == 0 ) {
+    		 splitStr[0] = splitStr[0].substring(0,ii)+"e-a";
+    	 }
+    	 
+    	ee = splitStr[0].length()-4;
+/*
+    while(splitStr[0].charAt(ee) == 'u') {
+    		System.out.println("yes");							//u does not work yet
+    		 splitStr[0] = splitStr[0].substring(0,ii)+"e-a";
+    		 ee++;
+    }
+    */
+    	 splitStr[0] = splitStr[0].replaceAll("v", "f");
+    	 splitStr[0] = splitStr[0].replaceAll("w", "v");
+}
+if(splitStr.length >= 2){
+	  
+    	 	count1 = splitStr[1].length();
+ 		control = 0;
+ 		i = 1;
+ 		a = 1;
+ 		j = 0;
+ 		e = 0; 
+ 		r = 1;
+ 		k = 0;
+ 		
+ 	    splitStr[1] = splitStr[1].replaceAll("the", "zee");
+ 	    splitStr[1] = splitStr[1].replaceAll("an", "un");
+ 	    if(k == 0) {
+ 	   splitStr[1] = splitStr[1].replaceAll("au", "oo");
+ 	   k = 1;
+ 	    }
+ 	    splitStr[1] = splitStr[1].replaceAll("a", "e");
+ 	    splitStr[1] = splitStr[1].replaceAll("ow", "oo");
+ 	    
+ 	    if(k == 0) {
+ 	    	splitStr[1] = splitStr[1].replaceAll("o", "u");
+ 	    }
+ 	    splitStr[1] = splitStr[1].replaceAll("ir", "ur");
+ 	    splitStr[1] = splitStr[1].replaceAll("tion", "shun");
+ 	    
+ 	    StringBuilder sWord = new StringBuilder(splitStr[1]);
+ 	    
+ 	     while(i < count1) {
+ 	    	 	if(sWord.charAt(i) == 'i') {
+ 	    	 		sWord.setCharAt(i, 'e');
+ 	    	 	}
+ 	    	 	i++;
+ 	     }
+ 	  
+ 	     splitStr[1] = sWord.toString();
+ 	     
+ 	     while(j < count1 && a < count1) {
+ 	    	 if(splitStr[1].charAt(j) == 'e' && splitStr[1].charAt(a) == 'n') {
+ 	    		 splitStr[1] = splitStr[1].substring(0, splitStr[1].length() - 1)+'e';
+ 	    		 control = 1;
+ 	    	 	}else {
+ 	    	 		control = 0;
+ 	    	 	}
+ 	    	 j++;
+ 	    	 a++;
+ 	     }
+ 	     splitStr[1] = splitStr[1].replaceAll("f", "ff");
+ 	     
+ 	    ii = splitStr[1].length() - 1;
+ 	    	 if(splitStr[1].charAt(ii) == 'e' && control == 0 ) {
+ 	    		 splitStr[1] = splitStr[1].substring(0,ii)+"e-a";
+ 	    	 }
+ 	    	 
+ 	    	ee = splitStr[1].length()-4;
+
+ 	   /* while(splitStr[1].charAt(ee) == 'u') {
+ 	    		System.out.println("yes");							//u does not work yet
+ 	    		 splitStr[1] = splitStr[1].substring(0,ii)+"e-a";
+ 	    		 ee++;
+ 	    }
+ 	    */
+ 	    	
+ 	    	 splitStr[1] = splitStr[1].replaceAll("v", "f");
+ 	    	 splitStr[1] = splitStr[1].replaceAll("w", "v");
+  }
+if(splitStr.length >= 3) {	  
+	 
+ 			count1 = splitStr[2].length();
+ 			control = 0;
+ 			i = 1;
+ 			a = 1;
+ 			j = 0;
+ 			e = 0; 
+ 			r = 1;
+ 			k = 0;
+ 			
+ 		    splitStr[2] = splitStr[2].replaceAll("the", "zee");
+ 		    splitStr[2] = splitStr[2].replaceAll("an", "un");
+ 		   if(k == 0) {
+ 		   splitStr[2] = splitStr[2].replaceAll("au", "oo");
+ 		   k = 1;
+ 		   }
+ 		    splitStr[2] = splitStr[2].replaceAll("a", "e");
+ 		    splitStr[2] = splitStr[2].replaceAll("ow", "oo");
+ 		    if(k == 0) {
+ 		    splitStr[2] = splitStr[2].replaceAll("o", "u");
+ 		    }
+ 		    splitStr[2] = splitStr[2].replaceAll("ir", "ur");
+ 		    splitStr[2] = splitStr[2].replaceAll("tion", "shun");
+ 		    
+ 		    StringBuilder tWord = new StringBuilder(splitStr[2]);
+ 		     while(i < count1) {
+ 		    	 	if(tWord.charAt(i) == 'i') {
+ 		    	 		tWord.setCharAt(i, 'e');
+ 		    	 	}
+ 		    	 	i++;
+ 		     }
+ 		  
+ 		     splitStr[2] = tWord.toString();
+ 		     
+ 		     while(j < count1 && a < count1) {
+ 		    	 if(splitStr[2].charAt(j) == 'e' && splitStr[2].charAt(a) == 'n') {
+ 		    		 splitStr[2] = splitStr[2].substring(0, splitStr[2].length() - 1)+'e';
+ 		    		 control = 1;
+ 		    	 	}else {
+ 		    	 		control = 0;
+ 		    	 	}
+ 		    	 j++;
+ 		    	 a++;
+ 		     }
+ 		     splitStr[2] = splitStr[2].replaceAll("f", "ff");
+ 		     
+ 		    ii = splitStr[2].length() - 1;
+ 		    	 if(splitStr[2].charAt(ii) == 'e' && control == 0 ) {
+ 		    		 splitStr[2] = splitStr[2].substring(0,ii)+"e-a";
+ 		    	 }
+ 		    	 
+ 		    	ee = splitStr[2].length()-4;
+
+ 		    /*while(splitStr[2].charAt(ee) == 'u') {
+ 		    		System.out.println("yes");							//u does not work yet
+ 		    		 splitStr[2] = splitStr[2].substring(0,ii)+"e-a";
+ 		    		 ee++;
+ 		    }
+ 		   */
+ 		    	 splitStr[2] = splitStr[2].replaceAll("v", "f");
+ 		    	 splitStr[2] = splitStr[2].replaceAll("w", "v");
+ }
+if(splitStr.length >= 4) {
+ 		
+ 				count1 = splitStr[3].length();
+ 				control = 0;
+ 				i = 1;
+ 				a = 1;
+ 				j = 0;
+ 				e = 0; 
+ 				r = 1;
+ 				k = 0;
+ 				
+ 			    splitStr[3] = splitStr[3].replaceAll("the", "zee");
+ 			    splitStr[3] = splitStr[3].replaceAll("an", "un");
+ 			   if(k == 0) {
+ 			   splitStr[3] = splitStr[3].replaceAll("au", "oo");
+ 			   k = 1;
+ 			   }
+ 			    splitStr[3] = splitStr[3].replaceAll("a", "e");
+ 			    splitStr[3] = splitStr[3].replaceAll("ow", "oo");
+ 			    if(k == 0) {
+ 			    splitStr[3] = splitStr[3].replaceAll("o", "u");
+ 			    }
+ 			    splitStr[3] = splitStr[3].replaceAll("ir", "ur");
+ 			    splitStr[3] = splitStr[3].replaceAll("tion", "shun");
+ 			    StringBuilder fWord = new StringBuilder(splitStr[3]);
+ 			    
+ 			     while(i < count1) {
+ 			    	 	if(fWord.charAt(i) == 'i') {
+ 			    	 		fWord.setCharAt(i, 'e');
+ 			    	 	}
+ 			    	 	i++;
+ 			     }
+ 			  
+ 			     splitStr[3] = fWord.toString();
+ 			     
+ 			     while(j < count1 && a < count1) {
+ 			    	 if(splitStr[3].charAt(j) == 'e' && splitStr[3].charAt(a) == 'n') {
+ 			    		 splitStr[3] = splitStr[3].substring(0, splitStr[3].length() - 1)+'e';
+ 			    		 control = 1;
+ 			    	 	}else {
+ 			    	 		control = 0;
+ 			    	 	}
+ 			    	 j++;
+ 			    	 a++;
+ 			     }
+ 			     splitStr[3] = splitStr[3].replaceAll("f", "ff");
+ 			     
+ 			    ii = splitStr[3].length() - 1;
+ 			    	 if(splitStr[3].charAt(ii) == 'e' && control == 0 ) {
+ 			    		 splitStr[3] = splitStr[3].substring(0,ii)+"e-a";
+ 			    	 }
+ 			    	 
+ 			    	ee = splitStr[3].length()-4;
+
+ 			   /* while(splitStr[3].charAt(ee) == 'u') {
+ 			    		System.out.println("yes");							//u does not work yet
+ 			    		 splitStr[3] = splitStr[3].substring(0,ii)+"e-a";
+ 			    		 ee++;
+ 			    }
+ 			    */
+ 			    	 splitStr[3] = splitStr[3].replaceAll("v", "f");
+ 			    	 splitStr[3] = splitStr[3].replaceAll("w", "v");
+ 	}
+	if (splitStr.length >= 5) {
+ 		
+ 					count1 = splitStr[4].length();
+ 					control = 0;
+ 					i = 1;
+ 					a = 1;
+ 					j = 0;
+ 					e = 0; 
+ 					r = 1;
+ 					k = 0;
+ 				    splitStr[4] = splitStr[4].replaceAll("the", "zee");
+ 				    splitStr[4] = splitStr[4].replaceAll("an", "un");
+ 				    if(k == 0) {
+ 				   splitStr[4] = splitStr[4].replaceAll("au", "oo");
+ 				   k = 1;
+ 				    }
+ 				    splitStr[4] = splitStr[4].replaceAll("a", "e");
+ 				    splitStr[4] = splitStr[4].replaceAll("ow", "oo");
+ 				    
+ 				    if(k == 0){
+ 				    splitStr[4] = splitStr[4].replaceAll("o", "u");
+ 				    }
+ 				    splitStr[4] = splitStr[4].replaceAll("ir", "ur");
+ 				    splitStr[4] = splitStr[4].replaceAll("tion", "shun");
+ 				    StringBuilder ffWord = new StringBuilder(splitStr[4]);
+ 				    
+ 				     while(i < count1) {
+ 				    	 	if(ffWord.charAt(i) == 'i') {
+ 				    	 		ffWord.setCharAt(i, 'e');
+ 				    	 	}
+ 				    	 	i++;
+ 				     }
+ 				  
+ 				     splitStr[4] = ffWord.toString();
+ 				     
+ 				     while(j < count1 && a < count1) {
+ 				    	 if(splitStr[4].charAt(j) == 'e' && splitStr[4].charAt(a) == 'n') {
+ 				    		 splitStr[4] = splitStr[4].substring(0, splitStr[4].length() - 1)+'e';
+ 				    		 control = 1;
+ 				    	 	}else {
+ 				    	 		control = 0;
+ 				    	 	}
+ 				    	 j++;
+ 				    	 a++;
+ 				     }
+ 				     splitStr[4] = splitStr[4].replaceAll("f", "ff");
+ 				     
+ 				    ii = splitStr[4].length() - 1;
+ 				    	 if(splitStr[4].charAt(ii) == 'e' && control == 0 ) {
+ 				    		 splitStr[4] = splitStr[4].substring(0,ii)+"e-a";
+ 				    	 }
+ 				    	 
+ 				    	ee = splitStr[4].length()-4;
+ 				    	/*
+ 				    while(splitStr[4].charAt(ee) == 'u') {
+ 				    		System.out.println("yes");							//u does not work yet
+ 				    		 splitStr[4] = splitStr[4].substring(0,ii)+"e-a";
+ 				    		 ee++;
+ 				    }
+ 				    */
+ 				    	 splitStr[4] = splitStr[4].replaceAll("v", "f");
+ 				    	 splitStr[4] = splitStr[4].replaceAll("w", "v");
+ 	}
+ 	
+     if(splitStr.length == 1) {
+    	 System.out.println(splitStr[0]+". "+"Bork Bork Bork");
+     }else if (splitStr.length == 2) {
+    	 System.out.println(splitStr[0]+" "+splitStr[1]+". "+"Bork Bork Bork");
+     }else if (splitStr.length == 3) {
+    	 System.out.println(splitStr[0]+" "+splitStr[1]+" " + splitStr[2]+". "+"Bork Bork Bork");
+     }else if(splitStr.length == 4) {
+    	 System.out.println(splitStr[0]+" "+splitStr[1]+" " + splitStr[2]+" "+ splitStr[3]+". "+"Bork Bork Bork");
+     }else if (splitStr.length == 5) {
+    	 System.out.println(splitStr[0]+" "+splitStr[1]+" " + splitStr[2]+" "+ splitStr[3]+" "+ splitStr[4] + ". "+"Bork Bork Bork");
+     }
+
+
+
+}
+}
+
+
+
