@@ -2,7 +2,7 @@ package review;
 
 import java.util.Scanner;
 
-public class tester {
+public class tester2 {
 
 public static void main(String [] args){
 
@@ -16,6 +16,7 @@ Scanner input = new Scanner(System.in);
 	int count1 = splitStr[0].length();
 	int control = 0;
 	int i = 1;
+	int c = 1;
 	int a = 1;
 	int j = 0;
 	int e = 0; 
@@ -23,6 +24,8 @@ Scanner input = new Scanner(System.in);
 	int ii = 0;
 	int ee = 0;
 	int k = 0;
+	int o = 1; 
+	int p = 1;
 	
 if(splitStr.length >= 1)	{
 	
@@ -39,16 +42,20 @@ if(splitStr.length >= 1)	{
     }
     splitStr[0] = splitStr[0].replaceAll("ir", "ur");
     splitStr[0] = splitStr[0].replaceAll("tion", "shun");
-    StringBuilder firstWord = new StringBuilder(splitStr[0]);
     
-     while(i < count1) {
-    	 	if(firstWord.charAt(i) == 'i') {
-    	 		firstWord.setCharAt(i, 'e');
-    	 	}
-    	 	i++;
-     }
-  
-     splitStr[0] = firstWord.toString();
+    StringBuffer buf = new StringBuffer(splitStr[0]);
+    
+    while(i < count1 && c < count1) {
+    	if(splitStr[0].charAt(i) == 'i') {
+    	buf.deleteCharAt(i);
+    buf.replace(i, c, "ee");
+    
+    	}
+    	i++;
+    	c++;
+    }
+    splitStr[0] = buf.toString();
+    
      while(j < count1 && a < count1) {
     	 if(splitStr[0].charAt(j) == 'e' && splitStr[0].charAt(a) == 'n') {
     		 splitStr[0] = splitStr[0].substring(0, splitStr[0].length() - 1)+'e';
@@ -62,18 +69,27 @@ if(splitStr.length >= 1)	{
      splitStr[0] = splitStr[0].replaceAll("f", "ff");
      
      ii = splitStr[0].length() - 1;
-    	 if(splitStr[0].charAt(ii) == 'e' && control == 0 ) {
+     System.out.println(ii);
+     
+    	 if(splitStr[0].charAt(ii) == 'e' ) {
     		 splitStr[0] = splitStr[0].substring(0,ii)+"e-a";
     	 }
-    	 
+    	
     	ee = splitStr[0].length()-4;
-/*
-    while(splitStr[0].charAt(ee) == 'u') {
-    		System.out.println("yes");							//u does not work yet
-    		 splitStr[0] = splitStr[0].substring(0,ii)+"e-a";
-    		 ee++;
-    }
-    */
+    	
+    	 StringBuffer buffy = new StringBuffer(splitStr[0]);
+    	    
+    	    while(o < count1 && p < count1) {
+    	    	if(splitStr[0].charAt(o) == 'u') {
+    	    	buffy.deleteCharAt(o);
+    	    buffy.replace(o, p, "oo");
+    	    
+    	    	}
+    	    	o++;
+    	    	p++;
+    	    }
+    	    splitStr[0] = buffy.toString();
+    	    
     	 splitStr[0] = splitStr[0].replaceAll("v", "f");
     	 splitStr[0] = splitStr[0].replaceAll("w", "v");
 }
@@ -87,6 +103,9 @@ if(splitStr.length >= 2){
  		e = 0; 
  		r = 1;
  		k = 0;
+ 		c = 1;
+ 		o = 1;
+ 		p = 1;
  		
  	    splitStr[1] = splitStr[1].replaceAll("the", "zee");
  	    splitStr[1] = splitStr[1].replaceAll("an", "un");
@@ -103,16 +122,18 @@ if(splitStr.length >= 2){
  	    splitStr[1] = splitStr[1].replaceAll("ir", "ur");
  	    splitStr[1] = splitStr[1].replaceAll("tion", "shun");
  	    
- 	    StringBuilder sWord = new StringBuilder(splitStr[1]);
+ 	   StringBuffer buf = new StringBuffer(splitStr[1]);
  	    
- 	     while(i < count1) {
- 	    	 	if(sWord.charAt(i) == 'i') {
- 	    	 		sWord.setCharAt(i, 'e');
- 	    	 	}
- 	    	 	i++;
- 	     }
- 	  
- 	     splitStr[1] = sWord.toString();
+ 	    while(i < count1 && c < count1) {
+ 	    	if(splitStr[1].charAt(i) == 'i') {
+ 	    	buf.deleteCharAt(i);
+ 	    buf.replace(i, c, "ee");
+ 	    
+ 	    	}
+ 	    	i++;
+ 	    	c++;
+ 	    }
+ 	    splitStr[1] = buf.toString();
  	     
  	     while(j < count1 && a < count1) {
  	    	 if(splitStr[1].charAt(j) == 'e' && splitStr[1].charAt(a) == 'n') {
@@ -133,12 +154,18 @@ if(splitStr.length >= 2){
  	    	 
  	    	ee = splitStr[1].length()-4;
 
- 	   /* while(splitStr[1].charAt(ee) == 'u') {
- 	    		System.out.println("yes");							//u does not work yet
- 	    		 splitStr[1] = splitStr[1].substring(0,ii)+"e-a";
- 	    		 ee++;
- 	    }
- 	    */
+ 	    	 StringBuffer buffy = new StringBuffer(splitStr[1]);
+     	    
+     	    while(o < count1 && p < count1) {
+     	    	if(splitStr[1].charAt(o) == 'u') {
+     	    	buffy.deleteCharAt(o);
+     	    buffy.replace(o, p, "oo");
+     	    
+     	    	}
+     	    	o++;
+     	    	p++;
+     	    }
+     	    splitStr[1] = buffy.toString();
  	    	
  	    	 splitStr[1] = splitStr[1].replaceAll("v", "f");
  	    	 splitStr[1] = splitStr[1].replaceAll("w", "v");
@@ -153,7 +180,9 @@ if(splitStr.length >= 3) {
  			e = 0; 
  			r = 1;
  			k = 0;
- 			
+ 			c = 1;
+ 			o = 1;
+ 			p = 1;
  		    splitStr[2] = splitStr[2].replaceAll("the", "zee");
  		    splitStr[2] = splitStr[2].replaceAll("an", "un");
  		   if(k == 0) {
@@ -168,15 +197,18 @@ if(splitStr.length >= 3) {
  		    splitStr[2] = splitStr[2].replaceAll("ir", "ur");
  		    splitStr[2] = splitStr[2].replaceAll("tion", "shun");
  		    
- 		    StringBuilder tWord = new StringBuilder(splitStr[2]);
- 		     while(i < count1) {
- 		    	 	if(tWord.charAt(i) == 'i') {
- 		    	 		tWord.setCharAt(i, 'e');
- 		    	 	}
- 		    	 	i++;
- 		     }
- 		  
- 		     splitStr[2] = tWord.toString();
+ 		   StringBuffer buf = new StringBuffer(splitStr[2]);
+ 		    
+ 		    while(i < count1 && c < count1) {
+ 		    	if(splitStr[2].charAt(o) == 'i') {
+ 		    	buf.deleteCharAt(i);
+ 		    buf.replace(i, c, "ee");
+ 		    
+ 		    	}
+ 		    	i++;
+ 		    	c++;
+ 		    }
+ 		    splitStr[2] = buf.toString();
  		     
  		     while(j < count1 && a < count1) {
  		    	 if(splitStr[2].charAt(j) == 'e' && splitStr[2].charAt(a) == 'n') {
@@ -197,12 +229,19 @@ if(splitStr.length >= 3) {
  		    	 
  		    	ee = splitStr[2].length()-4;
 
- 		    /*while(splitStr[2].charAt(ee) == 'u') {
- 		    		System.out.println("yes");							//u does not work yet
- 		    		 splitStr[2] = splitStr[2].substring(0,ii)+"e-a";
- 		    		 ee++;
- 		    }
- 		   */
+ 		    	 StringBuffer buffy = new StringBuffer(splitStr[2]);
+ 	    	    
+ 	    	    while(o < count1 && p < count1) {
+ 	    	    	if(splitStr[2].charAt(o) == 'u') {
+ 	    	    	buffy.deleteCharAt(o);
+ 	    	    buffy.replace(o, p, "oo");
+ 	    	    
+ 	    	    	}
+ 	    	    	o++;
+ 	    	    	p++;
+ 	    	    }
+ 	    	    splitStr[2] = buffy.toString();
+ 	    	    
  		    	 splitStr[2] = splitStr[2].replaceAll("v", "f");
  		    	 splitStr[2] = splitStr[2].replaceAll("w", "v");
  }
@@ -216,6 +255,9 @@ if(splitStr.length >= 4) {
  				e = 0; 
  				r = 1;
  				k = 0;
+ 				c = 1;
+ 				o = 1;
+ 				p = 1;
  				
  			    splitStr[3] = splitStr[3].replaceAll("the", "zee");
  			    splitStr[3] = splitStr[3].replaceAll("an", "un");
@@ -230,16 +272,18 @@ if(splitStr.length >= 4) {
  			    }
  			    splitStr[3] = splitStr[3].replaceAll("ir", "ur");
  			    splitStr[3] = splitStr[3].replaceAll("tion", "shun");
- 			    StringBuilder fWord = new StringBuilder(splitStr[3]);
+ 			   StringBuffer buf = new StringBuffer(splitStr[3]);
  			    
- 			     while(i < count1) {
- 			    	 	if(fWord.charAt(i) == 'i') {
- 			    	 		fWord.setCharAt(i, 'e');
- 			    	 	}
- 			    	 	i++;
- 			     }
- 			  
- 			     splitStr[3] = fWord.toString();
+ 			    while(i < count1 && c < count1) {
+ 			    	if(splitStr[3].charAt(i) == 'i') {
+ 			    	buf.deleteCharAt(i);
+ 			    buf.replace(i, c, "ee");
+ 			    
+ 			    	}
+ 			    	i++;
+ 			    	c++;
+ 			    }
+ 			    splitStr[3] = buf.toString();
  			     
  			     while(j < count1 && a < count1) {
  			    	 if(splitStr[3].charAt(j) == 'e' && splitStr[3].charAt(a) == 'n') {
@@ -260,12 +304,20 @@ if(splitStr.length >= 4) {
  			    	 
  			    	ee = splitStr[3].length()-4;
 
- 			   /* while(splitStr[3].charAt(ee) == 'u') {
- 			    		System.out.println("yes");							//u does not work yet
- 			    		 splitStr[3] = splitStr[3].substring(0,ii)+"e-a";
- 			    		 ee++;
- 			    }
- 			    */
+ 			    	 StringBuffer buffy = new StringBuffer(splitStr[3]);
+ 		    	    
+ 		    	    while(o < count1 && p < count1) {
+ 		    	    	if(splitStr[3].charAt(o) == 'u') {
+ 		    	    	buffy.deleteCharAt(o);
+ 		    	    buffy.replace(o, p, "oo");
+ 		    	    
+ 		    	    	}
+ 		    	    	o++;
+ 		    	    	p++;
+ 		    	    }
+ 		    	    
+ 		    	    splitStr[3] = buffy.toString();
+ 		    	    
  			    	 splitStr[3] = splitStr[3].replaceAll("v", "f");
  			    	 splitStr[3] = splitStr[3].replaceAll("w", "v");
  	}
@@ -279,6 +331,9 @@ if(splitStr.length >= 4) {
  					e = 0; 
  					r = 1;
  					k = 0;
+ 					c = 1;
+ 					o = 1;
+ 					p = 1;
  				    splitStr[4] = splitStr[4].replaceAll("the", "zee");
  				    splitStr[4] = splitStr[4].replaceAll("an", "un");
  				    if(k == 0) {
@@ -293,16 +348,18 @@ if(splitStr.length >= 4) {
  				    }
  				    splitStr[4] = splitStr[4].replaceAll("ir", "ur");
  				    splitStr[4] = splitStr[4].replaceAll("tion", "shun");
- 				    StringBuilder ffWord = new StringBuilder(splitStr[4]);
+ 				   StringBuffer buf = new StringBuffer(splitStr[4]);
  				    
- 				     while(i < count1) {
- 				    	 	if(ffWord.charAt(i) == 'i') {
- 				    	 		ffWord.setCharAt(i, 'e');
- 				    	 	}
- 				    	 	i++;
- 				     }
- 				  
- 				     splitStr[4] = ffWord.toString();
+ 				    while(i < count1 && c < count1) {
+ 				    	if(splitStr[4].charAt(i) == 'i') {
+ 				    	buf.deleteCharAt(i);
+ 				    buf.replace(i, c, "ee");
+ 				    
+ 				    	}
+ 				    	i++;
+ 				    	c++;
+ 				    }
+ 				    splitStr[4] = buf.toString();
  				     
  				     while(j < count1 && a < count1) {
  				    	 if(splitStr[4].charAt(j) == 'e' && splitStr[4].charAt(a) == 'n') {
@@ -322,13 +379,20 @@ if(splitStr.length >= 4) {
  				    	 }
  				    	 
  				    	ee = splitStr[4].length()-4;
- 				    	/*
- 				    while(splitStr[4].charAt(ee) == 'u') {
- 				    		System.out.println("yes");							//u does not work yet
- 				    		 splitStr[4] = splitStr[4].substring(0,ii)+"e-a";
- 				    		 ee++;
- 				    }
- 				    */
+ 				    	
+ 				    	 StringBuffer buffy = new StringBuffer(splitStr[4]);
+ 			    	    
+ 			    	    while(o < count1 && p < count1) {
+ 			    	    	if(splitStr[4].charAt(o) == 'u') {
+ 			    	    	buffy.deleteCharAt(o);
+ 			    	    buffy.replace(o, p, "oo");
+ 			    	    
+ 			    	    	}
+ 			    	    	o++;
+ 			    	    	p++;
+ 			    	    }
+ 			    	    splitStr[4] = buffy.toString();
+ 			    	    
  				    	 splitStr[4] = splitStr[4].replaceAll("v", "f");
  				    	 splitStr[4] = splitStr[4].replaceAll("w", "v");
  	}
@@ -349,6 +413,5 @@ if(splitStr.length >= 4) {
 
 }
 }
-
 
 
